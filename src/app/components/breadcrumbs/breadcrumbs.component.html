@@ -1,0 +1,3 @@
+<ion-breadcrumbs mode="ios" *ngIf="breadcrumbs && breadcrumbs.length">
+    <ion-breadcrumb *ngFor="let breadcrumb of breadcrumbs" [routerLink]="breadcrumb.route ? [breadcrumb.route] : null">{{ breadcrumb.label |translate }}</ion-breadcrumb>
+</ion-breadcrumbs>

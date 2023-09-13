@@ -1,0 +1,11 @@
+body:not([color-theme="dark"]) .ion-page > ion-content {
+    // --ion-background-color: #f1f1f1;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap!important;
+}

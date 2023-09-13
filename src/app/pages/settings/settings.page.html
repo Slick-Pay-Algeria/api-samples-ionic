@@ -1,0 +1,20 @@
+<app-header [menuButton]="true"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+
+    <ion-list>
+        <ion-list-header>{{ 'parameters' |translate }}</ion-list-header>
+        <ion-item>
+            <ion-icon name="moon-outline" slot="start"></ion-icon>
+            <ion-label>{{ 'dark_mode' |translate }}</ion-label>
+            <ion-toggle slot="end" [ariaLabel]="'dark_mode' |translate" [(ngModel)]="darkMode" (ionChange)="toggleDarkMode($event)" [ariaLabel]="'dark_mode' |translate"></ion-toggle>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="language-outline" slot="start"></ion-icon>
+            <ion-select [(ngModel)]="locale" (ionChange)="doChangeLocale()" [placeholder]="'select_option' |translate" [label]="'language' |translate" label-placement="stacked">
+                <ion-select-option *ngFor="let row of locales" [value]="row.locale">{{ row.language }}</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,18 @@
+<app-header [closeButton]="true"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+
+    <div [innerHTML]="'user_auth_text' |translate"></div>
+
+    <pre><code [highlight]="code"></code></pre>
+
+    <div class="d-flex ion-align-items-center">
+        <ion-button (click)="try()">{{ 'try' |translate }}</ion-button>
+        <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+    </div>
+
+    <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+
+    <div [innerHTML]="'user_auth_text2' |translate"></div>
+</ion-content>

@@ -1,0 +1,84 @@
+<app-header [menuButton]="true"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-segment [scrollable]="true" [(ngModel)]="segment">
+        <ion-segment-button value="user">
+            <ion-label>{{ 'user' |translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="merchant">
+            <ion-label>{{ 'merchant' |translate }}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+    <ng-container [ngSwitch]="segment">
+
+        <ng-container *ngSwitchCase="'user'">
+            <ion-card color="tertiary" class="ion-margin-top" *ngIf="userInfo">
+                <ion-card-content>
+                    <div class="d-flex flex-nowrap ion-align-items-center">
+                        <ion-icon name="alert-circle-outline" size="large" class="flex-fill"></ion-icon>
+                        <ion-text class="ion-padding-start flex-fill">
+                            <span [innerHTML]="'set_api_key' |translate"></span>
+                            <a href="" [routerLink]="['/api-key']">{{ 'api_key' |translate }}</a>.
+                        </ion-text>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-list>
+                <ion-list-header>{{ 'API' |translate }}</ion-list-header>
+                <ion-item (click)="openUserAuthModal()" detail="true" button>
+                    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'authentication' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openUserAccountsModal()" detail="true" button>
+                    <ion-icon name="people-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'accounts' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openUserContactsModal()" detail="true" button>
+                    <ion-icon name="book-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'contacts' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openUserTransfersModal()" detail="true" button>
+                    <ion-icon name="cash-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'amounts_transfer' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openUserAggregationsModal()" detail="true" button>
+                    <ion-icon name="cube-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'payments_aggregation' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openUserInvoicesModal()" detail="true" button>
+                    <ion-icon name="document-text-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'transfers_invoice' |translate }}</ion-label>
+                </ion-item>
+            </ion-list>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'merchant'">
+            <ion-card color="tertiary" class="ion-margin-top" *ngIf="merchantInfo">
+                <ion-card-content>
+                    <div class="d-flex flex-nowrap ion-align-items-center">
+                        <ion-icon name="alert-circle-outline" size="large" class="flex-fill"></ion-icon>
+                        <ion-text class="ion-padding-start flex-fill">
+                            <span [innerHTML]="'set_api_key' |translate"></span>
+                            <a href="" [routerLink]="['/api-key']">{{ 'api_key' |translate }}</a>.
+                        </ion-text>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-list>
+                <ion-list-header>{{ 'API' |translate }}</ion-list-header>
+                <ion-item (click)="openMerchantAuthModal()" detail="true" button>
+                    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'authentication' |translate }}</ion-label>
+                </ion-item>
+                <ion-item (click)="openMerchantInvoicesModal()" detail="true" button>
+                    <ion-icon name="document-text-outline" slot="start"></ion-icon>
+                    <ion-label>{{ 'transfers_invoice' |translate }}</ion-label>
+                </ion-item>
+            </ion-list>
+        </ng-container>
+    </ng-container>
+</ion-content>

@@ -1,5 +1,5 @@
 {
-  "name": "slickpay-demo-ionic",
+  "name": "Slickpay API Samples Ionic",
   "integrations": {
     "capacitor": {}
   },

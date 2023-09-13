@@ -1,0 +1,22 @@
+<app-header [menuButton]="true"></app-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <form [formGroup]="apikeyForm" (submit)="save()">
+        <ion-list>
+            <ion-list-header>{{ 'user_key' |translate }}</ion-list-header>
+            <ion-item>
+                <ion-input formControlName="user_key" [label]="'public_key' |translate" labelPlacement="stacked" [placeholder]="'entrer_your_key' |translate"></ion-input>
+            </ion-item>
+
+            <ion-list-header class="ion-margin-top">{{ 'merchant_key' |translate }}</ion-list-header>
+            <ion-item>
+                <ion-input formControlName="merchant_key" [label]="'public_key' |translate" labelPlacement="stacked" [placeholder]="'entrer_your_key' |translate"></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <br>
+
+        <ion-button type="submit" size="large" expand="block">{{ 'save' |translate }}</ion-button>
+    </form>
+</ion-content>

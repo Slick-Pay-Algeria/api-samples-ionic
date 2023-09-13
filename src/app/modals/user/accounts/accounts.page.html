@@ -1,0 +1,87 @@
+<app-header [closeButton]="true"></app-header>
+
+<ion-content [fullscreen]="true">
+    <div class="ion-padding">
+        <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+
+        <div [innerHTML]="'user_accounts_text' |translate"></div>
+    </div>
+
+    <ion-accordion-group (ionChange)="onAccordionChange()" #accordionGroup>
+        <ion-accordion value="create">
+            <ion-item slot="header" color="light">
+                <ion-label>{{ 'create_account' |translate }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <pre><code [highlight]="create_code"></code></pre>
+
+                <div class="d-flex ion-align-items-center">
+                    <ion-button (click)="tryCreate()">{{ 'try' |translate }}</ion-button>
+                    <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+                </div>
+
+                <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+            </div>
+        </ion-accordion>
+        <ion-accordion value="details">
+            <ion-item slot="header" color="light">
+                <ion-label>{{ 'account_details' |translate }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <pre><code [highlight]="details_code"></code></pre>
+
+                <div class="d-flex ion-align-items-center">
+                    <ion-button (click)="tryDetails()">{{ 'try' |translate }}</ion-button>
+                    <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+                </div>
+
+                <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+            </div>
+        </ion-accordion>
+        <ion-accordion value="list">
+            <ion-item slot="header" color="light">
+                <ion-label>{{ 'accounts_list' |translate }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <pre><code [highlight]="list_code"></code></pre>
+
+                <div class="d-flex ion-align-items-center">
+                    <ion-button (click)="tryList()">{{ 'try' |translate }}</ion-button>
+                    <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+                </div>
+
+                <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+            </div>
+        </ion-accordion>
+        <ion-accordion value="update">
+            <ion-item slot="header" color="light">
+                <ion-label>{{ 'update_account' |translate }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <pre><code [highlight]="update_code"></code></pre>
+
+                <div class="d-flex ion-align-items-center">
+                    <ion-button (click)="tryUpdate()">{{ 'try' |translate }}</ion-button>
+                    <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+                </div>
+
+                <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+            </div>
+        </ion-accordion>
+        <ion-accordion value="delete">
+            <ion-item slot="header" color="light">
+                <ion-label>{{ 'delete_account' |translate }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <pre><code [highlight]="delete_code"></code></pre>
+
+                <div class="d-flex ion-align-items-center">
+                    <ion-button (click)="tryDelete()">{{ 'try' |translate }}</ion-button>
+                    <ion-spinner name="circular" color="secondary" *ngIf="loading"></ion-spinner>
+                </div>
+
+                <pre [class.ion-hide]="!clicked"><code [highlight]="code_response"></code></pre>
+            </div>
+        </ion-accordion>
+    </ion-accordion-group>
+</ion-content>
